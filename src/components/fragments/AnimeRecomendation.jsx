@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const AnimeRecomandaton = ({anime, id}) => {
   return (
-    <Link href={`/anime/${id}/episode/${anime?.entry?.mal_id}`} className="flex gap-4">
+    <Link href={`/anime/${anime?.entry?.mal_id}`} className="flex gap-4">
       <div>
         <Image
           className="max-w-[100px] min-h-[50px] rounded-sm"

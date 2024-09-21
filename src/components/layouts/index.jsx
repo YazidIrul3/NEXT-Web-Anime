@@ -14,7 +14,7 @@ const HomeLayout = () => {
         <h1 className="text-xl font-bold">Top Anime</h1>
         <Link
           href={"/anime/top"}
-          className=" font-bold text-slate-50 text-sm px-2 rounded-xl bg-blue-500"
+          className=" font-bold text-slate-50 text-sm px-3 py-1 rounded-xl bg-blue-800"
         >
           All Anime
         </Link>

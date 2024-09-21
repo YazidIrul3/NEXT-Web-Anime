@@ -22,8 +22,9 @@ const AnimeById = ({ id }) => {
       ) : (
         <div>
           <div className="flex flex-col justify-center items-center gap-1">
-            <h1 className="font-bold text-lg mb-3">{animeDetail?.title}</h1>
+            <h1 className="font-bold text-lg mb-3 text-yellow-500 mt-3">{animeDetail?.title}</h1>
             <Image
+              className="w-36 min-h-44 rounded-sm"
               src={animeDetail?.images?.webp?.image_url}
               alt="anime img"
               width={100}

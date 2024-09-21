@@ -23,12 +23,12 @@ const Card = ({ anime }) => {
             height={1000}
           />
 
-          <div className="bottom-0 right-0 py-1 px-4 rounded-bl-xl rounded-tr-xl bg-blue-500 text-slate-50 text-xs absolute flex justify-center items-center font-bold">
+          <div className="bottom-0 right-0 py-1 px-4 rounded-br-sm rounded-tl-md bg-yellow-500 text-slate-50 text-xs absolute flex justify-center items-center font-bold">
             Ep. {anime?.episodes}
           </div>
         </div>
 
-        <div className="w-12 left-0 top-0 h-8 text-sm rounded-tl-xl rounded-br-3xl bg-blue-500 text-slate-50 absolute flex justify-center items-center font-bold">
+        <div className="w-12 left-0 top-0 h-8 text-sm rounded-tl-xl rounded-br-xl bg-blue-800 text-slate-50 absolute flex justify-center items-center font-bold">
           TOP
         </div>
         <div>

@@ -10,6 +10,8 @@ const AnimeByIdAndEps = ({ episode, id }) => {
   const anime2 = useFetchAnime(`anime/${id}/videos/episodes`);
   const animeRecommendations = useFetchAnime(`anime/${id}/recommendations`);
   const review = useFetchAnime(`anime/${id}/reviews`);
+  const animeVideo = useFetchAnime(`anime/${id}/videos`);
+
   const path = usePathname();
   const pathname = path.split("/")[4];
 
@@ -17,17 +19,28 @@ const AnimeByIdAndEps = ({ episode, id }) => {
   const animeEpisodes = anime2?.anime?.data?.data;
   const animeRecom = animeRecommendations?.anime?.data?.data;
   const animeComment = review?.anime?.data?.data;
+  const video = animeVideo?.anime?.data?.data?.music_videos[0]?.video?.embed_url;
+
   console.log(animeRecom);
-  // console.log(animeComment);
+  
+
+  // console.log(item);
+  
 
   return (
     <div className="container mx-auto bg-slate-950 h-screen px-3">
       <div className="flex 2xl:flex-row xl:flex-row lg:flex-row flex-col gap-4">
-        <div className="">
+        <div className="py-4">
           <div>
-            <video controls className="w-screen h-full" autoPlay>
-              <source src={item?.url} type="video/mp4" />
-            </video>
+            <video
+              controls
+              src={video}
+              type="video/mp4"
+              className="w-screen h-full"
+              autoPlay
+              muted
+              loop
+            ></video>
           </div>
 
           <div>
@@ -45,14 +58,14 @@ const AnimeByIdAndEps = ({ episode, id }) => {
                   pathname == anime?.mal_id ? "bg-slate-900" : ""
                 }`}
               >
-                <CardById anime={anime} id={id}/>
+                <CardById anime={anime} id={id} />
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      <div className="mt-11 flex flex-row w-full gap-5">
+      <div className="mt-11 flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-row flex-col w-full gap-5">
         <div className="flex flex-col gap-7 w-5/6">
           <h1 className="text-lg mt-2 font-bold">
             Reviews {animeComment?.length}

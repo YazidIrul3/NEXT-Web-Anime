@@ -14,7 +14,11 @@ const Navbar = () => {
 
   return (
     <div className="bg-slate-950 text-slate-50 p-4 flex gap-4 items-center">
-      <h1 className=" font-extrabold 2xl:text-xl xl:text-xl lg:text-lg md:text-lg text-sm text-yellow-500">YKH Anime</h1>
+      <Link href={"/"}>
+        <h1 className=" font-extrabold 2xl:text-xl xl:text-xl lg:text-lg md:text-lg text-sm text-yellow-500">
+          YKH Anime
+        </h1>
+      </Link>
 
       <div className="relative w-64">
         <input
@@ -26,7 +30,7 @@ const Navbar = () => {
 
         <Link
           href={`/anime/search/${search}`}
-          className=" absolute top-1/2 -translate-y-1/2 right-2 text-lg font-bold"
+          className=" absolute top-1/2 -translate-y-1/2 right-2 text-xl font-extrabold text-slate-50 p-2"
         >
           <MagnifyingGlass />
         </Link>

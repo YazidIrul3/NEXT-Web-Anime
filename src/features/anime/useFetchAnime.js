@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 export function useFetchAnime(path) {
   const [anime, setAnime] = useState([]);
   const [isLoad, setLoad] = useState(true);
+  
+  
   const getAnime = async () => {
     try {
       const response = await axiosInstace.get(path);
