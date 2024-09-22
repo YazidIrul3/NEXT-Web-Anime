@@ -16,7 +16,7 @@ const Card = ({ anime }) => {
       <div className="flex flex-col gap-2 ">
         <div className="relative">
           <Image
-            className="  hover:bg-slate-900 object-cover rounded-xl 2xl:h-[300px] xl:h-[270px] lg:h-[250px] md:h-[250px] sm:h-[250px] min-h-[170px]"
+            className="  hover:bg-slate-900 object-cover rounded-xl 2xl:h-[300px] xl:h-[270px] lg:h-[250px] md:h-[250px] sm:h-[250px] h-[180px]"
             src={anime?.images?.webp?.image_url}
             alt="image anime"
             width={1000}
