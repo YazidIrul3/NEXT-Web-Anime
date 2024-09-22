@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const AnimeCardLoading = () => {
   return (
     <div className="flex flex-col gap-2 bg-slate-800 animate-pulse">

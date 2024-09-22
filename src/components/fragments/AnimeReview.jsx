@@ -1,6 +1,9 @@
 import Image from "next/image";
+import { useState } from "react";
 
 const AnimeReview = ({ review }) => {
+  const [line, setLine] = useState("line-clamp-3");
+  const [displayComment, setDisplayComment] = useState("block");
   return (
     <div className="flex flex-col gap-4 px-4">
       <div className=" flex gap-4 ">
@@ -20,7 +23,16 @@ const AnimeReview = ({ review }) => {
       </div>
 
       <div>
-        <p className=" text-xs">{review?.review}</p>
+        <p className={`text-xs ${line}`}>{review?.review}</p>
+        <p
+          onClick={() => {
+            setLine("");
+            setDisplayComment("hidden");
+          }}
+          className={` hover:cursor-pointer text-xs text-blue-400 ${displayComment}`}
+        >
+          Baca Selengkapnya
+        </p>
       </div>
     </div>
   );

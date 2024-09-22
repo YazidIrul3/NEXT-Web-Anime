@@ -10,7 +10,6 @@ const HomeLayout = () => {
   const topAnime = useFetchAnime("top/anime?limit=8");
   const loading = Array(12).fill(null);
 
-  console.log(topAnime?.anime);
 
   return (
     <div className="container mx-auto px-5 py-8 bg-slate-950 flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-row flex-col gap-7">
@@ -52,7 +51,12 @@ const HomeLayout = () => {
           </div>
 
           <div className=" font-bold text-slate-50 text-sm px-3 mt-4 border hover:bg-slate-50 hover:text-slate-900 hover:border-slate-50 border-slate-50 py-2 rounded-lg w-full">
-            <Link href="/anime/top" className=" text-center flex items-center justify-center text-lg">Other</Link>
+            <Link
+              href="/anime/top"
+              className=" text-center flex items-center justify-center text-lg"
+            >
+              Other
+            </Link>
           </div>
         </div>
       </div>
