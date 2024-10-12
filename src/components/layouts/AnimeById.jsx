@@ -1,17 +1,25 @@
 "use client";
-import { useFetchAnime } from "@/features/anime/useFetchAnime";
 import { Star } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import CardById from "../fragments/CardById";
 import Spinner from "../fragments/Spinner";
+import EachUtils from "@/utils/Eachutils";
+import { useRouter } from "next/navigation";
+import { FetchAnime } from "@/features/anime/useFetchAnime";
 
 const AnimeById = ({ id }) => {
-  const anime2 = useFetchAnime(`anime/${id}`);
-  const { anime, isLoad } = useFetchAnime(`anime/${id}/videos/episodes`);
+  const anime2 = FetchAnime(`anime/${id}`);
+  const { anime, isLoad } = FetchAnime(`anime/${id}/videos/episodes`);
+  const router = useRouter();
 
   const animeDetail = anime2?.anime?.data?.data;
-  console.log(animeDetail);
-  console.log(anime?.data?.data);
+
+  console.log(anime);
+
+  // if (!anime) {
+  //   router.push("/");
+  // }
+  // console.log(animeDetail);
 
   return (
     <div className="container mx-auto px-3 bg-slate-950 h-screen">
@@ -21,9 +29,9 @@ const AnimeById = ({ id }) => {
         </div>
       ) : (
         <div>
-          <div className=" flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-row flex-col justify-center items-center gap-5">
+          <div className=" flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-row flex-col items-center gap-5">
             <Image
-              className="min-w-44 min-h-44 rounded-sm"
+              className="min-w-44 min-h-44 rounded-sm ml-4"
               src={animeDetail?.images?.webp?.image_url}
               alt="anime img"
               width={100}
@@ -56,9 +64,10 @@ const AnimeById = ({ id }) => {
           <div className=" mt-5">
             <h1 className="text-xl mb-3 font-bold">Episodes</h1>
             <div className="flex flex-col gap-4">
-              {anime?.data?.data?.map((item, i) => {
-                return <CardById key={i} anime={item} id={id} />;
-              })}
+              <EachUtils
+                of={anime?.data?.data}
+                render={(item, i) => <CardById key={i} anime={item} id={id} />}
+              />
             </div>
           </div>
         </div>

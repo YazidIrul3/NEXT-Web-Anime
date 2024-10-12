@@ -2,7 +2,7 @@
 import { axiosInstace } from "@/libs/axios";
 import { useEffect, useState } from "react";
 
-export function useFetchAnime(path, efct) {
+export const FetchAnime = (path, efct) => {
   const [anime, setAnime] = useState([]);
   const [isLoad, setLoad] = useState(true);
 
@@ -24,4 +24,4 @@ export function useFetchAnime(path, efct) {
     anime,
     isLoad,
   };
-}
+};

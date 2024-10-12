@@ -1,15 +1,15 @@
 "use client";
-import { useFetchAnime } from "@/features/anime/useFetchAnime";
 import Card from "../fragments/Card";
 import Link from "next/link";
 import AnimeCardLoading from "../fragments/AnimeCardLoading";
 import TopAnimeCard from "../fragments/TopAnimeCard";
+import EachUtils from "@/utils/Eachutils";
+import { FetchAnime } from "@/features/anime/useFetchAnime";
 
 const HomeLayout = () => {
-  const { anime, isLoad } = useFetchAnime("anime?limit=12");
-  const topAnime = useFetchAnime("top/anime?limit=8");
-  const loading = Array(12).fill(null);
-
+  const { anime, isLoad } = FetchAnime("anime?limit=12");
+  const topAnime = FetchAnime("top/anime?limit=8");
+  const loading = Array(8).fill(null);
 
   return (
     <div className="container mx-auto px-5 py-8 bg-slate-950 flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-row flex-col gap-7">
@@ -33,9 +33,10 @@ const HomeLayout = () => {
         ) : (
           <div>
             <div className="grid 2xl:grid-cols-5 xl:grid-cols-5 lg:grid-cols-4 py-2 sm:grid-cols-4 grid-cols-3 gap-4">
-              {anime?.data?.data?.map((item, i) => {
-                return <Card key={i} anime={item} />;
-              })}
+              <EachUtils
+                of={anime?.data?.data}
+                render={(item, i) => <Card key={i} anime={item} />}
+              />
             </div>
           </div>
         )}
@@ -45,9 +46,18 @@ const HomeLayout = () => {
         <h1 className="text-xl font-bold">Top Anime</h1>
         <div className=" bg-opacity-55 max-h-[1000px] overflow-y-scroll scrollbar-none ">
           <div className="bg-blue-800">
-            {topAnime?.anime?.data?.data?.map((item, i) => {
-              return <TopAnimeCard key={i} anime={item} />;
-            })}
+            {isLoad ? (
+              <div className="">
+                {loading.map((_, i) => {
+                  return <AnimeCardLoading key={i} />;
+                })}
+              </div>
+            ) : (
+              <EachUtils
+                of={topAnime?.anime?.data?.data}
+                render={(item, i) => <TopAnimeCard  anime={item} />}
+              />
+            )}
           </div>
 
           <div className=" font-bold text-slate-50 text-sm px-3 mt-4 border hover:bg-slate-50 hover:text-slate-900 hover:border-slate-50 border-slate-50 py-2 rounded-lg w-full">

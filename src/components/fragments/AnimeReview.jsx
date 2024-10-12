@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { useState } from "react";
 
-const AnimeReview = ({ review }) => {
+const AnimeReview = ({ review, comment }) => {
   const [line, setLine] = useState("line-clamp-3");
-  const [displayComment, setDisplayComment] = useState("block");
+  const [displayComment, setDisplayComment] = useState(comment);
   return (
     <div className="flex flex-col gap-4 px-4">
-      <div className=" flex gap-4 ">
+      <div className=" flex gap-4">
         <Image
           className=" w-[50px] h-[50px] rounded-full"
           src={review?.user?.images?.webp?.image_url}

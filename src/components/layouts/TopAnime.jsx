@@ -1,33 +1,17 @@
 "use client";
 
-import { useFetchAnime } from "@/features/anime/useFetchAnime";
+import { FetchAnime, useFetchAnime } from "@/features/anime/useFetchAnime";
 import Card from "../fragments/Card";
 import { useEffect, useState } from "react";
 import { axiosInstace } from "@/libs/axios";
 import AnimeCardLoading from "../fragments/AnimeCardLoading";
+import EachUtils from "@/utils/Eachutils";
 
 const TopAnime = () => {
   const [page, setPage] = useState(1);
-
-  const [anime, setAnime] = useState([]);
-  const [isLoad, setLoad] = useState(true);
   const loading = Array(25).fill(null);
 
-  const getAnime = async () => {
-    try {
-      const response = await axiosInstace.get(`top/anime?page=${page}`);
-      console.log(response);
-      setAnime(response);
-      setLoad(false);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    setLoad(true);
-    getAnime();
-  }, [page]);
+  const { anime, isLoad } = FetchAnime(`top/anime?page=${page}`, page);
 
   return (
     <div className="container mx-auto p-5 bg-slate-950 h-screen">
@@ -43,9 +27,10 @@ const TopAnime = () => {
       ) : (
         <div>
           <div className="grid 2xl:grid-cols-6 xl:grid-cols-6 lg:grid-cols-5 sm:grid-cols-4 grid-cols-3 gap-4">
-            {anime?.data?.data?.map((item, i) => {
-              return <Card key={i} anime={item} />;
-            })}
+            <EachUtils
+              of={anime?.data?.data}
+              render={(item, i) => <Card key={i} anime={item} />}
+            />
           </div>
 
           <div className="flex items-center justify-center gap-5 py-7">

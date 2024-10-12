@@ -1,22 +1,25 @@
 "use client";
-import { useFetchAnime } from "@/features/anime/useFetchAnime";
+import { FetchAnime } from "@/features/anime/useFetchAnime";
 import CardById from "../fragments/CardById";
 import { useParams, usePathname } from "next/navigation";
 import AnimeReview from "../fragments/AnimeReview";
 import AnimeRecomandaton from "../fragments/AnimeRecomendation";
 import { useState } from "react";
 import Spinner from "../fragments/Spinner";
+import EachUtils from "@/utils/Eachutils";
 
 const AnimeByIdAndEps = ({ episode, id }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const anime = useFetchAnime(`anime/${id}/episodes/${episode}`);
-  const anime2 = useFetchAnime(`anime/${id}/videos/episodes`);
-  const animeRecommendations = useFetchAnime(`anime/${id}/recommendations`);
-  const review = useFetchAnime(
+  const anime = FetchAnime(`anime/${id}/episodes/${episode}`);
+  const anime2 = FetchAnime(`anime/${id}/videos/episodes`);
+  const animeRecommendations = FetchAnime(`anime/${id}/recommendations`);
+  const review = FetchAnime(
     `anime/${id}/reviews?page=${currentPage}`,
     currentPage
   );
-  const animeVideo = useFetchAnime(`anime/${id}/videos`);
+  const animeVideo = FetchAnime(`anime/${id}/videos`);
+
+  const [displayComment, setDisplayComment] = useState("block");
 
   const path = usePathname();
   const pathname = path.split("/")[4];
@@ -64,16 +67,10 @@ const AnimeByIdAndEps = ({ episode, id }) => {
             <div className=" h-[500px] overflow-y-scroll 2xl:w-3/6 xl:w-3/6 lg:w-3/6 w-full scrollbar-none">
               <h1 className="text-lg mb-3 font-bold">Other Episodes</h1>
               <div className="flex flex-col gap-4">
-                {animeEpisodes?.map((anime, i) => (
-                  <div
-                    key={i}
-                    className={`w-full p-2 rounded-md ${
-                      pathname == anime?.mal_id ? "bg-slate-900" : ""
-                    }`}
-                  >
-                    <CardById anime={anime} id={id} />
-                  </div>
-                ))}
+                <EachUtils
+                  of={animeEpisodes}
+                  render={(item, i) => <CardById anime={item} />}
+                />
               </div>
             </div>
           </div>
@@ -86,15 +83,31 @@ const AnimeByIdAndEps = ({ episode, id }) => {
               <h1 className="text-lg mt-2 font-bold">COMMENTS</h1>
 
               <div className="flex flex-col gap-4">
-                {animeComment?.map((anime, i) => (
-                  <AnimeReview key={i} review={anime} />
-                ))}
+                {review?.isLoad ? (
+                  <div className="flex items-center justify-center mt-2">
+                    <Spinner />
+                  </div>
+                ) : (
+                  <EachUtils
+                    of={animeComment}
+                    render={(anime, i) => (
+                      <AnimeReview
+                        key={i}
+                        review={anime}
+                        comment={displayComment}
+                      />
+                    )}
+                  />
+                )}
               </div>
 
               <div className="flex flex-row items-center justify-center gap-4">
                 {currentPage > 1 && (
                   <button
-                    onClick={() => setCurrentPage(currentPage - 1)}
+                    onClick={() => {
+                      setCurrentPage(currentPage - 1);
+                      setDisplayComment("block");
+                    }}
                     className=" bg-blue-800 font-bold text-slate-50 text-lg px-3 py-1"
                   >
                     Back
