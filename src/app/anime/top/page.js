@@ -1,7 +1,7 @@
-import TopAnime from "@/components/layouts/TopAnime";
+import TopAnimePage from "@/components/pages/TopAnimePage";
 
 const Page = () => {
-  return <TopAnime />;
+  return <TopAnimePage />;
 };
 
 export default Page;

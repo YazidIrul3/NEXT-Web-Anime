@@ -1,7 +1,7 @@
-import AnimeSearch from "@/components/layouts/AnimeSearch";
+import AnimeSearchPage from "@/components/pages/AnimeSearchPage";
 
 const Page = ({ params }) => {
-  return <AnimeSearch search={params.search} />;
+  return <AnimeSearchPage search={params.search} />;
 };
 
 export default Page;

@@ -4,23 +4,8 @@ import Image from "next/image";
 import CardById from "../fragments/CardById";
 import Spinner from "../fragments/Spinner";
 import EachUtils from "@/utils/Eachutils";
-import { useRouter } from "next/navigation";
-import { FetchAnime } from "@/features/anime/useFetchAnime";
 
-const AnimeById = ({ id }) => {
-  const anime2 = FetchAnime(`anime/${id}`);
-  const { anime, isLoad } = FetchAnime(`anime/${id}/videos/episodes`);
-  const router = useRouter();
-
-  const animeDetail = anime2?.anime?.data?.data;
-
-  console.log(anime);
-
-  // if (!anime) {
-  //   router.push("/");
-  // }
-  // console.log(animeDetail);
-
+const AnimeById = ({ animeDetail, anime, anime2, isLoad, id }) => {
   return (
     <div className="container mx-auto px-3 bg-slate-950 h-screen">
       {anime2?.isLoad ? (
@@ -37,7 +22,8 @@ const AnimeById = ({ id }) => {
               width={100}
               height={100}
             />
-            <div className="flex flex-col gap-1">
+
+            <div className="flex flex-col gap-1 w-full px-4">
               <div className="flex flex-row justify-between">
                 <h1 className="font-bold text-xl mb-3 text-yellow-500 mt-3">
                   {animeDetail?.title}

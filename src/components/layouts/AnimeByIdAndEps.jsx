@@ -50,13 +50,20 @@ const AnimeByIdAndEps = ({ episode, id }) => {
               <div>
                 <video
                   controls
-                  src={video}
-                  type="video/mp4"
                   className="w-screen h-full"
-                  autoPlay
-                  muted
-                  loop
-                ></video>
+                  preload="none"
+                >
+                  <source
+                    src=".../assets/videos/video.mp4"
+                    type="video/mp4"
+                  />
+                  <track
+                    src="../assets/videos/video.mp4"
+                    kind="subtitles"
+                    srcLang="en"
+                    label="English"
+                  />
+                </video>
               </div>
 
               <div>

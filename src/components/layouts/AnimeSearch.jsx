@@ -1,13 +1,9 @@
 "use client";
-import { FetchAnime } from "@/features/anime/useFetchAnime";
 import CardSearch from "../fragments/CardSearch";
 import Spinner from "../fragments/Spinner";
 import EachUtils from "@/utils/Eachutils";
 
-const AnimeSearch = ({ search }) => {
-  const { anime, isLoad } = FetchAnime(`anime?q=${search}`);
-  const { anime2, isLoad2 } = FetchAnime(`anime?q=${search}`);
-
+const AnimeSearch = ({ anime, anime2, isLoad }) => {
   return (
     <div className="container mx-auto p-5 bg-slate-950 h-screen">
       {isLoad ? (

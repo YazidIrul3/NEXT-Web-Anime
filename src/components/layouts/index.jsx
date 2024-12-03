@@ -4,13 +4,8 @@ import Link from "next/link";
 import AnimeCardLoading from "../fragments/AnimeCardLoading";
 import TopAnimeCard from "../fragments/TopAnimeCard";
 import EachUtils from "@/utils/Eachutils";
-import { FetchAnime } from "@/features/anime/useFetchAnime";
 
-const HomeLayout = () => {
-  const { anime, isLoad } = FetchAnime("anime?limit=12");
-  const topAnime = FetchAnime("top/anime?limit=8");
-  const loading = Array(8).fill(null);
-
+const HomeLayout = ({ anime, topAnime, loading, isLoad }) => {
   return (
     <div className="container mx-auto px-5 py-8 bg-slate-950 flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-row flex-col gap-7">
       <div className="2xl:w-5/6 xl:w-5/6 lg:w-5/6 mdw:w-5/6 w-full">
@@ -55,7 +50,7 @@ const HomeLayout = () => {
             ) : (
               <EachUtils
                 of={topAnime?.anime?.data?.data}
-                render={(item, i) => <TopAnimeCard  anime={item} />}
+                render={(item, i) => <TopAnimeCard anime={item} />}
               />
             )}
           </div>
