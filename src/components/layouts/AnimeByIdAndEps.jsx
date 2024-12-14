@@ -7,6 +7,7 @@ import AnimeRecomandaton from "../fragments/AnimeRecomendation";
 import { useState } from "react";
 import Spinner from "../fragments/Spinner";
 import EachUtils from "@/utils/Eachutils";
+import VideoPlayer from "@/utils/VideoPlayer";
 
 const AnimeByIdAndEps = ({ episode, id }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -28,14 +29,9 @@ const AnimeByIdAndEps = ({ episode, id }) => {
   const animeEpisodes = anime2?.anime?.data?.data;
   const animeRecom = animeRecommendations?.anime?.data?.data;
   const animeComment = review?.anime?.data?.data;
-  const video =
-    animeVideo?.anime?.data?.data?.music_videos[0]?.video?.embed_url;
+  const video = item?.url?.replace("http://", "https://");
 
-  // console.log(review);
-  // console.log(review?.anime?.data?.pagination);
-  // console.log(currentPage);
-
-  // console.log(item);
+  console.log(item);
 
   return (
     <div className="container mx-auto bg-slate-950 h-screen px-3 ">
@@ -46,9 +42,9 @@ const AnimeByIdAndEps = ({ episode, id }) => {
       ) : (
         <div>
           <div className="flex 2xl:flex-row xl:flex-row lg:flex-row flex-col gap-4">
-            <div className="py-4">
-              <div>
-                <video
+            <div className="py-4 w-11/12">
+              <div className="w-full">
+                {/* <video
                   controls
                   className="w-screen h-full"
                   preload="none"
@@ -63,7 +59,11 @@ const AnimeByIdAndEps = ({ episode, id }) => {
                     srcLang="en"
                     label="English"
                   />
-                </video>
+                </video> */}
+
+                <VideoPlayer
+                  url={"https://youtu.be/o3C8yFMHyJQ?si=z3wOo-1jb2SvOVUU"}
+                />
               </div>
 
               <div>
