@@ -35,6 +35,7 @@ const Navbar = () => {
 
         <Link
           href={`/anime/search/${search}`}
+          onClick={handleClick}
           className=" absolute top-1/2 -translate-y-1/2 right-2 text-xl font-extrabold text-slate-50 p-2"
         >
           <MagnifyingGlass />

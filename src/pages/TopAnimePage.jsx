@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import TopAnime from "../layouts/TopAnime";
+import TopAnime from "../components/layouts/TopAnime";
 import { FetchAnime } from "@/features/anime/useFetchAnime";
 import { useRouter, useSearchParams } from "next/navigation";
 
@@ -17,8 +17,6 @@ const TopAnimePage = () => {
   const handleChangePage = (page) => {
     router.push("/anime/top?page=" + page);
   };
-
- 
 
   return (
     <TopAnime

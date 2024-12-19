@@ -1,4 +1,4 @@
-import TopAnimePage from "@/components/pages/TopAnimePage";
+import TopAnimePage from "@/pages/TopAnimePage";
 
 const Page = () => {
   return <TopAnimePage />;

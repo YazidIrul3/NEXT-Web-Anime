@@ -1,7 +1,8 @@
 'use client'
 
+import AnimeSearch from "@/components/layouts/AnimeSearch";
 import { FetchAnime } from "@/features/anime/useFetchAnime";
-import AnimeSearch from "../layouts/AnimeSearch";
+
 
 const AnimeSearchPage = ({ search }) => {
   const { anime, isLoad } = FetchAnime(`anime?q=${search}`);

@@ -1,7 +1,7 @@
-import AnimeDetail from "@/components/pages/AnimeDetail";
+import AnimeDetail from "@/pages/AnimeDetail";
 
 const Page = ({ params }) => {
-    return <AnimeDetail id={params?.id} />;
-}
+  return <AnimeDetail id={params?.id} />;
+};
 
-export default Page
+export default Page;

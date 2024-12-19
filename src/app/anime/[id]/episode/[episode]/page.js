@@ -4,4 +4,4 @@ const Page = ({ params }) => {
   return <AnimeByIdAndEps id={params?.id} episode={params?.episode} />;
 };
 
-export default Page
+export default Page;
