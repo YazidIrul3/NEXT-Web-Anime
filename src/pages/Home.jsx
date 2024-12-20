@@ -1,7 +1,6 @@
 "use client";
 
 import HomeLayout from "@/components/layouts";
-import Footer from "@/components/layouts/Footer";
 import { FetchAnime } from "@/features/anime/useFetchAnime";
 
 const HomePage = () => {
@@ -17,7 +16,6 @@ const HomePage = () => {
         loading={loading}
         isLoad={isLoad}
       />
-      <Footer />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense } from "react";
 import TopAnime from "../components/layouts/TopAnime";
 import { FetchAnime } from "@/features/anime/useFetchAnime";
 import { useRouter, useSearchParams } from "next/navigation";

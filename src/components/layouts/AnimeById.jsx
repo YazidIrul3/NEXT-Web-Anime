@@ -7,7 +7,7 @@ import EachUtils from "@/utils/Eachutils";
 
 const AnimeById = ({ animeDetail, anime, anime2, isLoad, id }) => {
   return (
-    <div className="container mx-auto px-3 bg-slate-950 h-screen">
+    <div className="container mx-auto px-3 bg-slate-950 min-h-screen h-full">
       {anime2?.isLoad ? (
         <div className="flex items-center justify-center mt-2">
           <Spinner />
@@ -47,7 +47,7 @@ const AnimeById = ({ animeDetail, anime, anime2, isLoad, id }) => {
             </div>
           </div>
 
-          <div className=" mt-5">
+          <div className=" mt-5 pb-4">
             <h1 className="text-xl mb-3 font-bold">Episodes</h1>
             <div className="flex flex-col gap-4">
               <EachUtils

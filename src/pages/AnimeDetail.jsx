@@ -1,7 +1,6 @@
 "use client";
 
 import AnimeById from "@/components/layouts/AnimeById";
-import Footer from "@/components/layouts/Footer";
 import { FetchAnime } from "@/features/anime/useFetchAnime";
 
 const AnimeDetail = ({ id }) => {
@@ -19,8 +18,6 @@ const AnimeDetail = ({ id }) => {
         isLoad={isLoad}
         id={id}
       />
-
-      <Footer />
     </div>
   );
 };

@@ -9,7 +9,7 @@ import EachUtils from "@/utils/Eachutils";
 const TopAnime = ({ anime, isLoad, loading, page, handleChangePage }) => {
   return (
     <div>
-      <div className="container mx-auto p-5 bg-slate-950 h-screen">
+      <div className="container mx-auto p-5 bg-slate-950 h-full min-h-screen ">
         <div className="flex items-center justify-between mb-5">
           <h1 className="text-xl font-bold">Top Anime</h1>
         </div>

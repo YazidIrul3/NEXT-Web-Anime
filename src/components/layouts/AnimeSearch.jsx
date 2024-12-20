@@ -13,7 +13,7 @@ const AnimeSearch = ({ anime, anime2, isLoad }) => {
       ) : (
         <div>
           <h1 className="text-xl font-bold mb-2">Search Anime</h1>
-          <div className="grid 2xl:grid-cols-6 xl:grid-cols-6 lg:grid-cols-5  sm:grid-cols-4 grid-cols-3 gap-4">
+          <div className="grid 2xl:grid-cols-6 xl:grid-cols-6 lg:grid-cols-5 sm:grid-cols-4 grid-cols-3 gap-4 pb-3">
             <EachUtils
               of={anime?.data?.data}
               render={(item, i) => <CardSearch key={i} anime={item} />}
