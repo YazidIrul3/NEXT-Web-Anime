@@ -1,36 +1,23 @@
 "use client";
-import { FetchAnime } from "@/features/anime/useFetchAnime";
 import CardById from "../fragments/CardById";
-import { useParams, usePathname } from "next/navigation";
 import AnimeReview from "../fragments/AnimeReview";
 import AnimeRecomandaton from "../fragments/AnimeRecomendation";
-import { useState } from "react";
 import Spinner from "../fragments/Spinner";
 import EachUtils from "@/utils/Eachutils";
 import VideoPlayer from "@/utils/VideoPlayer";
-import Footer from "./Footer";
 
-const AnimeByIdAndEps = ({ episode, id }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const anime = FetchAnime(`anime/${id}/episodes/${episode}`);
-  const anime2 = FetchAnime(`anime/${id}/videos/episodes`);
-  const animeRecommendations = FetchAnime(`anime/${id}/recommendations`);
-  const review = FetchAnime(
-    `anime/${id}/reviews?page=${currentPage}`,
-    currentPage
-  );
-  const animeVideo = FetchAnime(`anime/${id}/videos`);
-
-  const [displayComment, setDisplayComment] = useState("block");
-
-  const path = usePathname();
-  const pathname = path.split("/")[4];
-
-  const item = anime?.anime?.data?.data;
-  const animeEpisodes = anime2?.anime?.data?.data;
-  const animeRecom = animeRecommendations?.anime?.data?.data;
-  const animeComment = review?.anime?.data?.data;
-
+const AnimeByIdAndEps = ({
+  anime,
+  id,
+  anime2,
+  animeRecommendations,
+  review,
+  displayComment,
+  item,
+  animeEpisodes,
+  animeRecom,
+  animeComment,
+}) => {
   return (
     <div className="container mx-auto bg-slate-950 h-screen px-3 ">
       {anime?.isLoad ? (
