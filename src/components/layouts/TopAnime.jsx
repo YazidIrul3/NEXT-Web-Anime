@@ -3,11 +3,10 @@
 import Card from "../fragments/Card";
 import AnimeCardLoading from "../fragments/AnimeCardLoading";
 import EachUtils from "@/utils/Eachutils";
-import { Suspense } from "react";
 
 const TopAnime = ({ anime, isLoad, loading, page, handleChangePage }) => {
   return (
-    <Suspense>
+    <div>
       <div className="container mx-auto p-5 bg-slate-950 h-full min-h-screen ">
         <div className="flex items-center justify-between mb-5">
           <h1 className="text-xl font-bold">Top Anime</h1>
@@ -49,7 +48,7 @@ const TopAnime = ({ anime, isLoad, loading, page, handleChangePage }) => {
           </div>
         )}
       </div>
-    </Suspense>
+    </div>
   );
 };
 
