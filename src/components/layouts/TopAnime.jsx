@@ -1,5 +1,3 @@
-"use client";
-
 import Card from "../fragments/Card";
 import AnimeCardLoading from "../fragments/AnimeCardLoading";
 import EachUtils from "@/utils/Eachutils";
