@@ -2,7 +2,7 @@
 
 import AnimeByIdAndEps from "@/components/layouts/AnimeByIdAndEps";
 import { FetchAnime } from "@/features/anime/useFetchAnime";
-import { useParams } from "next/navigation";
+import { notFound, useParams } from "next/navigation";
 import { useState } from "react";
 
 const AnimeByIdEpsPage = ({ episode, id }) => {

@@ -17,8 +17,6 @@ const AnimeByIdAndEps = ({
   animeRecom,
   animeComment,
 }) => {
-  const { episode } = params;
-
   return (
     <div className="container mx-auto bg-slate-950 h-screen px-3 ">
       {anime?.isLoad ? (
@@ -48,7 +46,9 @@ const AnimeByIdAndEps = ({
                   render={(item, i) => (
                     <div
                       className={`${
-                        item?.mal_id === Number(episode) ? "bg-slate-800" : ""
+                        item?.mal_id === Number(params.episode)
+                          ? "bg-slate-800"
+                          : ""
                       }`}
                     >
                       <CardById anime={item} id={id} />
