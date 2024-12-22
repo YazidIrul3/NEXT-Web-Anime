@@ -1,6 +1,5 @@
 "use client";
 import { axiosInstace } from "@/libs/axios";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export const FetchAnime = (path, efct) => {
