@@ -7,10 +7,9 @@ import EachUtils from "@/utils/Eachutils";
 import VideoPlayer from "@/utils/VideoPlayer";
 
 const AnimeByIdAndEps = ({
-  isLoad,
+  anime,
   params,
   id,
-  router,
   review,
   displayComment,
   item,
@@ -20,16 +19,9 @@ const AnimeByIdAndEps = ({
 }) => {
   const { episode } = params;
 
-  if (episode == null) {
-    router.push(`/anime/${id}`);
-  }
-
-  if (router.isFallback) return <Spinner />;
-  console.log(episode);
-
   return (
     <div className="container mx-auto bg-slate-950 h-screen px-3 ">
-      {isLoad ? (
+      {anime?.isLoad ? (
         <div className="flex items-center justify-center mt-2">
           <Spinner />
         </div>

@@ -2,25 +2,24 @@
 
 import AnimeByIdAndEps from "@/components/layouts/AnimeByIdAndEps";
 import { FetchAnime } from "@/features/anime/useFetchAnime";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import { useState } from "react";
 
 const AnimeByIdEpsPage = ({ episode, id }) => {
-  const { anime: item, isLoad } = FetchAnime(`anime/${id}/episodes/${episode}`);
+  const anime = FetchAnime(`anime/${id}/episodes/${episode}`);
+  const { anime: item } = FetchAnime(`anime/${id}/episodes/${episode}`);
   const { anime: animeEpisodes } = FetchAnime(`anime/${id}/videos/episodes`);
   const { anime: animeRecom } = FetchAnime(`anime/${id}/recommendations`);
   const { anime: animeComment } = FetchAnime(`anime/${id}/reviews?page=1`);
   const params = useParams();
-  const router = useRouter();
 
   const [displayComment, setDisplayComment] = useState("block");
 
   return (
     <AnimeByIdAndEps
       id={id}
-      isLoad={isLoad}
       params={params}
-      router={router}
+      anime={anime}
       item={item?.data?.data}
       animeEpisodes={animeEpisodes?.data?.data}
       animeComment={animeComment?.data?.data}

@@ -1,7 +1,7 @@
 import AnimeByIdEpsPage from "@/pages/AnimeByIdEpsPage";
 
 const Page = ({ params }) => {
-  return <AnimeByIdEpsPage id={params?.id} episode={params?.episode} />;
+  return <AnimeByIdEpsPage episode={params?.episode} id={params?.id} />;
 };
 
 export default Page;
