@@ -1,7 +1,12 @@
 import TopAnimePage from "@/pages/TopAnimePage";
+import { Suspense } from "react";
 
 const Page = () => {
-  return <TopAnimePage />;
+  return (
+    <Suspense>
+      <TopAnimePage />
+    </Suspense> 
+  );
 };
 
 export default Page;

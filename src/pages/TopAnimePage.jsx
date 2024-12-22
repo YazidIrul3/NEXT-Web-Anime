@@ -1,6 +1,5 @@
 "use client";
 
-import { Suspense } from "react";
 import { FetchAnime } from "@/features/anime/useFetchAnime";
 import { useRouter, useSearchParams } from "next/navigation";
 import TopAnime from "@/components/layouts/TopAnime";
@@ -19,15 +18,13 @@ const TopAnimePage = () => {
   };
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <TopAnime
-        anime={anime}
-        isLoad={isLoad}
-        loading={loading}
-        handleChangePage={handleChangePage}
-        page={page}
-      />
-    </Suspense>
+    <TopAnime
+      anime={anime}
+      isLoad={isLoad}
+      loading={loading}
+      handleChangePage={handleChangePage}
+      page={page}
+    />
   );
 };
 
