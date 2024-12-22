@@ -10,6 +10,7 @@ const AnimeByIdAndEps = ({
   isLoad,
   params,
   id,
+  router,
   review,
   displayComment,
   item,
@@ -18,6 +19,13 @@ const AnimeByIdAndEps = ({
   animeComment,
 }) => {
   const { episode } = params;
+
+  if (episode == null) {
+    router.push(`/anime/${id}`);
+  }
+
+  if (router.isFallback) return <Spinner />;
+  console.log(episode);
 
   return (
     <div className="container mx-auto bg-slate-950 h-screen px-3 ">
