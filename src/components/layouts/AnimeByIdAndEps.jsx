@@ -46,7 +46,7 @@ const AnimeByIdAndEps = ({
                   render={(item, i) => (
                     <div
                       className={`${
-                        item?.mal_id === Number(params.episode)
+                        item?.mal_id === Number(params.episodes)
                           ? "bg-slate-800"
                           : ""
                       }`}
