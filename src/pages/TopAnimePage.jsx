@@ -18,7 +18,7 @@ const TopAnimePage = () => {
   };
 
   return (
-    <Suspense>
+    <Suspense fallback={<div>Loading...</div>}>
       <TopAnime
         anime={anime}
         isLoad={isLoad}
