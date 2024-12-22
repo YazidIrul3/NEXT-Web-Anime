@@ -3,7 +3,7 @@ import CardSearch from "../fragments/CardSearch";
 import Spinner from "../fragments/Spinner";
 import EachUtils from "@/utils/Eachutils";
 
-const AnimeSearch = ({ anime, anime2, isLoad }) => {
+const AnimeSearch = ({ anime, isLoad }) => {
   return (
     <div className="container mx-auto p-5 bg-slate-950 h-screen">
       {isLoad ? (

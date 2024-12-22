@@ -7,10 +7,9 @@ import EachUtils from "@/utils/Eachutils";
 import VideoPlayer from "@/utils/VideoPlayer";
 
 const AnimeByIdAndEps = ({
-  anime,
+  isLoad,
+  params,
   id,
-  anime2,
-  animeRecommendations,
   review,
   displayComment,
   item,
@@ -18,9 +17,11 @@ const AnimeByIdAndEps = ({
   animeRecom,
   animeComment,
 }) => {
+  const { episode } = params;
+
   return (
     <div className="container mx-auto bg-slate-950 h-screen px-3 ">
-      {anime?.isLoad ? (
+      {isLoad ? (
         <div className="flex items-center justify-center mt-2">
           <Spinner />
         </div>
@@ -44,7 +45,15 @@ const AnimeByIdAndEps = ({
               <div className="flex flex-col gap-4">
                 <EachUtils
                   of={animeEpisodes}
-                  render={(item, i) => <CardById anime={item} />}
+                  render={(item, i) => (
+                    <div
+                      className={`${
+                        item?.mal_id === Number(episode) ? "bg-slate-800" : ""
+                      }`}
+                    >
+                      <CardById anime={item} id={id} />
+                    </div>
+                  )}
                 />
               </div>
             </div>

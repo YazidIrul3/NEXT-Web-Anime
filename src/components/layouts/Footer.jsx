@@ -6,7 +6,6 @@ import { useParams, usePathname } from "next/navigation";
 const Footer = () => {
   const path = usePathname();
   const params = useParams();
-  console.log(params);
 
   return (
     <footer>
