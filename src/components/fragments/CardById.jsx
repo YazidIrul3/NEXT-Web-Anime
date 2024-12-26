@@ -7,15 +7,15 @@ const CardById = ({ anime, id }) => {
       <div>
         <Image
           className="max-w-[150px] min-h-[80px] rounded-sm"
-          src={anime?.images?.jpg?.image_url}
-          alt="image anime"
+          src={anime?.images?.jpg?.image_url || ""}
+          alt="Anime Image"
           width={1000}
           height={1000}
         />
       </div>
 
       <div className="flex flex-col gap-1">
-        <h1 className="text-sm font-bold">{anime?.title}</h1>
+        <h1 className="text-lg font-bold">{anime?.title}</h1>
         <p className="font-semibold text-xs text-blue-500">{anime?.episode}</p>
       </div>
     </Link>

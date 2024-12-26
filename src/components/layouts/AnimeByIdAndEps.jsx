@@ -16,10 +16,19 @@ const AnimeByIdAndEps = ({
   animeEpisodes,
   animeRecom,
   animeComment,
+  itemIsLoad,
+  animeEpisodesIsLoad,
+  animeRecomIsLoad,
+  animeCommentIsLoad,
 }) => {
   return (
     <div className="container mx-auto bg-slate-950 h-screen px-3 ">
-      {anime?.isLoad ? (
+      {anime?.isLoad ||
+      itemIsLoad ||
+      animeEpisodesIsLoad ||
+      animeRecomIsLoad ||
+      animeCommentIsLoad ||
+      review?.isLoad ? (
         <div className="flex items-center justify-center mt-2">
           <Spinner />
         </div>
@@ -34,7 +43,7 @@ const AnimeByIdAndEps = ({
               </div>
 
               <div>
-                <h1 className="text-lg mt-2 font-bold">{item?.title}</h1>
+                <h1 className="text-xl mt-2 font-bold">{item?.title}</h1>
               </div>
             </div>
 
@@ -64,7 +73,7 @@ const AnimeByIdAndEps = ({
             id="comment"
           >
             <div className="flex flex-col gap-7 2xl:w-5/6 xl:w-5/6 lg:w-5/6 w-full">
-              <h1 className="text-lg mt-2 font-bold">COMMENTS</h1>
+              <h1 className="text-lg font-bold">COMMENTS</h1>
 
               <div className="flex flex-col gap-4">
                 {review?.isLoad ? (

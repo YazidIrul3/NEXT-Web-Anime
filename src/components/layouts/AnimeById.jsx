@@ -5,16 +5,16 @@ import CardById from "../fragments/CardById";
 import Spinner from "../fragments/Spinner";
 import EachUtils from "@/utils/Eachutils";
 
-const AnimeById = ({ animeDetail, anime, isLoadDetail, id }) => {
+const AnimeById = ({ animeDetail, anime, isLoadDetail, id, isLoad }) => {
   return (
     <div className="container mx-auto px-3 bg-slate-950 min-h-screen h-full">
-      {isLoadDetail ? (
+      {isLoadDetail || isLoad ? (
         <div className="flex items-center justify-center mt-2">
           <Spinner />
         </div>
       ) : (
         <div>
-          <div className=" flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-row flex-col items-center gap-5">
+          <div className=" flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-row 2xl:items-start xl:items-start lg:items-start md:items-start items-center flex-col gap-5">
             <Image
               className="min-w-44 min-h-44 rounded-sm ml-4"
               src={animeDetail?.images?.webp?.image_url}

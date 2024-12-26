@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <div>
           <Navbar />
-          <div className=" bg-slate-950 text-slate-50 pb-5 max-h-screen overflow-y-scroll scrollbar-none">
+          <div className=" bg-slate-950 text-slate-50 pb-5 min-h-screen overflow-y-scroll scrollbar-none">
             {children}
           </div>
           <Footer />
