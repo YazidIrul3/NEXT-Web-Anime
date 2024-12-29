@@ -14,7 +14,7 @@ const Footer = () => {
           <h1>@ {new Date().getFullYear()} By Yazid Khairul</h1>
           <h1>
             API From{" "}
-            <Link className=" text-slate-900" href={"https://jikan.moe/"}>
+            <Link className=" text-slate-50" href={"https://jikan.moe/"}>
               JIKAN API
             </Link>
           </h1>

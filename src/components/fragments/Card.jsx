@@ -7,7 +7,8 @@ const Card = ({ anime }) => {
   const [hover, setHover] = useState(false);
 
   return (
-    <Link href={`/anime/${anime?.mal_id}`}
+    <Link
+      href={`/anime/${anime?.mal_id}`}
       className={`min-h-full relative hover:text-blue-500 hover:${() =>
         setHover(true)}`}
       onMouseOver={() => setHover(true)}
@@ -32,7 +33,9 @@ const Card = ({ anime }) => {
           TOP
         </div>
         <div>
-          <h1 className="text-sm font-bold">{anime?.title}</h1>
+          <h1 className="2xl:text-sm xl:text-sm lg:text-sm md:text-sm sm:text-sm text-xs font-bold">
+            {anime?.title}
+          </h1>
         </div>
       </div>
 

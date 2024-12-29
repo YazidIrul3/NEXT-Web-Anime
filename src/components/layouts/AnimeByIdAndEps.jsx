@@ -35,8 +35,8 @@ const AnimeByIdAndEps = ({
       ) : (
         <div>
           <div className="flex 2xl:flex-row xl:flex-row lg:flex-row flex-col gap-4">
-            <div className="py-4 w-11/12">
-              <div className="w-full">
+            <div className="py-4 2xl:w-11/12 xl:w-11/12 lg:w-11/12">
+              <div className="w-ful 2xl:h-[500px] xl:h-[500px] lg:h-[400px] md:h-[400px] h-[300px]">
                 <VideoPlayer
                   url={"https://youtu.be/o3C8yFMHyJQ?si=z3wOo-1jb2SvOVUU"}
                 />

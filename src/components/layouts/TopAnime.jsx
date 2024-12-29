@@ -10,14 +10,14 @@ const TopAnime = ({ anime, isLoad, loading, page, handleChangePage }) => {
           <h1 className="text-xl font-bold">Top Anime</h1>
         </div>
         {isLoad ? (
-          <div className="grid 2xl:grid-cols-6 xl:grid-cols-6 lg:grid-cols-5 sm:grid-cols-4 grid-cols-3 gap-4">
+          <div className="grid 2xl:grid-cols-6 xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-4 grid-cols-3 gap-4">
             {loading.map((_, i) => {
               return <AnimeCardLoading key={i} />;
             })}
           </div>
         ) : (
           <div>
-            <div className="grid 2xl:grid-cols-6 xl:grid-cols-6 lg:grid-cols-5 sm:grid-cols-4 grid-cols-3 gap-4">
+            <div className="grid 2xl:grid-cols-6 xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-3 gap-4">
               <EachUtils
                 of={anime?.data?.data}
                 render={(item, i) => <Card key={i} anime={item} />}

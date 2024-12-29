@@ -9,7 +9,7 @@ const Spinner = () => {
         <span className="sr-only">Loading...</span>
       </div>
 
-      <p>Loading... jika loading terlalu lama bisa jadi anime tidak ada</p>
+      <p>Loading... jika loading terlalu lama bisa jadi tidak ada data</p>
     </div>
   );
 };

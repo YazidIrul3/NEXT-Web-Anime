@@ -1,6 +1,7 @@
 "use client";
 import { FetchAnime } from "@/features/anime/useFetchAnime";
 import { MagnifyingGlass } from "@phosphor-icons/react/dist/ssr";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -43,16 +44,23 @@ const Navbar = () => {
       </div>
 
       {search !== "" && (
-        <div className="flex flex-col gap-2 bg-slate-50 absolute top-16 left-24 p-4 text-slate-950 w-[300px] z-50">
+        <div className="flex flex-col gap-2 bg-slate-50 absolute top-16 left-24 text-slate-950 w-[300px] z-50">
           {anime?.data?.data?.map((item, i) => {
             return (
               <Link
                 href={`/anime/${item?.mal_id}`}
                 onClick={handleClick}
-                className=" p-2 hover:bgslale-950 z-50 hover:text-slate-50 rounded-lg"
+                className=" flex flex-row items-center gap-2 p-2 hover:bg-yellow-500 z-50 hover:text-slate-50"
                 key={i}
               >
-                <h1 className=" text-slate-950">{item?.title}</h1>
+                <Image
+                  className=" w-[50px] h-[70px] rounded-sm"
+                  src={item?.images?.jpg?.image_url || ""}
+                  alt="image anime"
+                  width={1000}
+                  height={1000}
+                />
+                <h1 className=" text-slate-950 font-bold text-justify">{item?.title}</h1>
               </Link>
             );
           })}
