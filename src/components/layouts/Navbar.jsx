@@ -44,7 +44,7 @@ const Navbar = () => {
       </div>
 
       {search !== "" && (
-        <div className="flex flex-col gap-2 bg-slate-50 absolute top-16 left-24 text-slate-950 w-[300px] z-50">
+        <div className="flex flex-col gap-2 bg-slate-50 absolute top-16 2xl:left-24 xl:left-24 lg:left-20 md:left-20 left-16 text-slate-950 w-[300px] z-50">
           {anime?.data?.data?.map((item, i) => {
             return (
               <Link
