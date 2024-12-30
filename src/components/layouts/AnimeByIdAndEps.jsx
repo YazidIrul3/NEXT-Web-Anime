@@ -47,23 +47,27 @@ const AnimeByIdAndEps = ({
               </div>
             </div>
 
-            <div className=" h-[500px] overflow-y-scroll 2xl:w-3/6 xl:w-3/6 lg:w-3/6 w-full scrollbar-none">
-              <h1 className="text-lg mb-3 font-bold">Other Episodes</h1>
-              <div className="flex flex-col gap-4">
-                <EachUtils
-                  of={animeEpisodes}
-                  render={(item, i) => (
-                    <div
-                      className={`${
-                        item?.mal_id === Number(params.episodes)
-                          ? "bg-slate-800"
-                          : ""
-                      }`}
-                    >
-                      <CardById anime={item} id={id} />
-                    </div>
-                  )}
-                />
+            <div className=" 2xl:w-3/6 xl:w-3/6 lg:w-3/6 w-full">
+              <h1 className="text-lg mb-3 font-bold text-yellow-500">
+                Other Episodes
+              </h1>
+              <div className=" h-[500px] overflow-y-scroll  scrollbar-none">
+                <div className="flex flex-col gap-4">
+                  <EachUtils
+                    of={animeEpisodes}
+                    render={(item, i) => (
+                      <div
+                        className={`${
+                          item?.mal_id === Number(params.episodes)
+                            ? "bg-slate-800"
+                            : ""
+                        }`}
+                      >
+                        <CardById anime={item} id={id} />
+                      </div>
+                    )}
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -73,7 +77,7 @@ const AnimeByIdAndEps = ({
             id="comment"
           >
             <div className="flex flex-col gap-7 2xl:w-5/6 xl:w-5/6 lg:w-5/6 w-full">
-              <h1 className="text-lg font-bold">COMMENTS</h1>
+              <h1 className="text-lg font-bold text-yellow-500">COMMENTS</h1>
 
               <div className="flex flex-col gap-4">
                 {review?.isLoad ? (
@@ -96,7 +100,7 @@ const AnimeByIdAndEps = ({
             </div>
 
             <div className="flex flex-col 2xl:w-2/6 xl:w-2/6 lg:w-2/6 w-full gap-7 ">
-              <h1 className="text-lg mt-2 font-bold">Recommendation</h1>
+              <h1 className="text-lg mt-2 font-bold text-yellow-500">Recommendation</h1>
 
               <div className="flex flex-col gap-4 h-[500px] overflow-y-scroll scrollbar-none">
                 {animeRecom?.map((anime, i) => (

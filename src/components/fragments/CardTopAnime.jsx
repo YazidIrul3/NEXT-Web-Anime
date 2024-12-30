@@ -3,7 +3,7 @@ import { Play } from "@phosphor-icons/react/dist/ssr";
 import { useState } from "react";
 import Link from "next/link";
 
-const Card = ({ anime }) => {
+const CardTopAnime = ({ anime }) => {
   const [hover, setHover] = useState(false);
 
   return (
@@ -18,7 +18,7 @@ const Card = ({ anime }) => {
         <div className="relative">
           <Image
             id="card-img-anime"
-            className="  hover:bg-slate-900 rounded-xl 2xl:h-[300px] xl:h-[225px] lg:h-[180px] md:h-[185px] sm:h-[180px] h-[200px]"
+            className="  hover:bg-slate-900 rounded-xl 2xl:h-[300px] xl:h-[270px] lg:h-[250px] md:h-[185px] sm:h-[180px] h-[200px]"
             src={anime?.images?.webp?.image_url}
             alt="image anime"
             width={1000}
@@ -51,4 +51,4 @@ const Card = ({ anime }) => {
   );
 };
 
-export default Card;
+export default CardTopAnime;

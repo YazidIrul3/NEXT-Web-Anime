@@ -19,7 +19,7 @@ const TopAnimeCard = ({ anime, i }) => {
       </div>
 
       <div className="flex flex-col ">
-        <h1 className="text-lg font-bold text-yellow-400">{anime?.title}</h1>
+        <h1 className="text-sm font-bold text-yellow-400">{anime?.title}</h1>
         <div className="flex flex-row items-center gap-2">
           <div className="flex items-center gap-1">
             <div className=" font-bold text-yellow-500">

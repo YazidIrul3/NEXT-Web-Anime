@@ -23,9 +23,9 @@ const AnimeById = ({ animeDetail, anime, isLoadDetail, id, isLoad }) => {
               height={100}
             />
 
-            <div className="flex flex-col gap-1 w-full px-4">
+            <div className="flex flex-col gap-1 w-full">
               <div className="flex flex-row justify-between">
-                <h1 className="font-bold text-xl mb-3 text-yellow-500 mt-3">
+                <h1 className="font-bold text-xl mb-3 text-slate-50">
                   {animeDetail?.title}
                 </h1>
                 <div className="flex flex-row items-center gap-1 px-2">
@@ -37,10 +37,10 @@ const AnimeById = ({ animeDetail, anime, isLoadDetail, id, isLoad }) => {
               </div>
               <div className="flex flex-col gap-1 text-sm mt-2">
                 <div className="flex flex-col gap-2">
-                  <h1 className="font-bold text-lg">Synopsis</h1>
+                  <h1 className="font-bold text-lg text-yellow-500">Synopsis</h1>
                   <div className="bg-slate-600 h-1 w-full"></div>
                 </div>
-                <p className="mt-3 text-xs font-light">
+                <p className="mt-3 text-xs text-justify font-light">
                   {animeDetail?.synopsis}
                 </p>
               </div>
@@ -48,7 +48,7 @@ const AnimeById = ({ animeDetail, anime, isLoadDetail, id, isLoad }) => {
           </div>
 
           <div className=" mt-5">
-            <h1 className="text-xl mb-3 font-bold">Episodes</h1>
+            <h1 className="text-xl mb-3 font-bold text-yellow-500">Episodes</h1>
             <div className="flex flex-col gap-4">
               <EachUtils
                 of={anime?.data?.data}

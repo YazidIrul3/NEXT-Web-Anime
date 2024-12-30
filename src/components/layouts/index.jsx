@@ -7,8 +7,8 @@ import EachUtils from "@/utils/Eachutils";
 
 const HomeLayout = ({ anime, topAnime, loading, isLoad }) => {
   return (
-    <div className="container mx-auto px-5 py-8 bg-slate-950 flex 2xl:flex-row xl:flex-row lg:flex-row flex-col gap-7">
-      <div className="2xl:w-5/6 xl:w-5/6 lg:w-5/6 w-full">
+    <div className="2xl:container mx-auto px-5 py-8 bg-slate-950 flex 2xl:flex-row xl:flex-row lg:flex-row flex-col gap-7">
+      <div className="2xl:w-5/6 w-full">
         <div className="flex items-center justify-between mb-5">
           <h1 className="text-xl font-bold">My Anime</h1>
 
@@ -20,14 +20,14 @@ const HomeLayout = ({ anime, topAnime, loading, isLoad }) => {
           </Link>
         </div>
         {isLoad ? (
-          <div className="grid 2xl:grid-cols-5 xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-4  sm:grid-cols-4 grid-cols-3 gap-4">
+          <div className="grid 2xl:grid-cols-5 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-5 sm:grid-cols-4 py-2 grid-cols-3 gap-4">
             {loading.map((_, i) => {
               return <AnimeCardLoading key={i} />;
             })}
           </div>
         ) : (
           <div>
-            <div className="grid 2xl:grid-cols-5 xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-4 py-2 grid-cols-3 gap-4">
+            <div className="grid 2xl:grid-cols-5 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-5 sm:grid-cols-4 py-2 grid-cols-3 gap-4">
               <EachUtils
                 of={anime?.data?.data}
                 render={(item, i) => <Card key={i} anime={item} />}

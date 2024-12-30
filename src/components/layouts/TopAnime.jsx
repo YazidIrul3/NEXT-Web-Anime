@@ -1,26 +1,26 @@
-import Card from "../fragments/Card";
-import AnimeCardLoading from "../fragments/AnimeCardLoading";
 import EachUtils from "@/utils/Eachutils";
+import CardTopAnime from "../fragments/CardTopAnime";
+import AnimeTopCardLoading from "../fragments/TopAnimeCardLoading";
 
 const TopAnime = ({ anime, isLoad, loading, page, handleChangePage }) => {
   return (
     <div>
-      <div className="container mx-auto p-5 bg-slate-950 h-full min-h-screen ">
+      <div className="2xl:container mx-auto p-5 bg-slate-950 h-full min-h-screen ">
         <div className="flex items-center justify-between mb-5">
           <h1 className="text-xl font-bold">Top Anime</h1>
         </div>
         {isLoad ? (
-          <div className="grid 2xl:grid-cols-6 xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-4 grid-cols-3 gap-4">
+          <div className="grid 2xl:grid-cols-5 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-5 sm:grid-cols-4 py-2 grid-cols-3 gap-4">
             {loading.map((_, i) => {
-              return <AnimeCardLoading key={i} />;
+              return <AnimeTopCardLoading key={i} />;
             })}
           </div>
         ) : (
           <div>
-            <div className="grid 2xl:grid-cols-6 xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-3 gap-4">
+            <div className="grid 2xl:grid-cols-6 xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-5 sm:grid-cols-4 py-2 grid-cols-3 gap-4">
               <EachUtils
                 of={anime?.data?.data}
-                render={(item, i) => <Card key={i} anime={item} />}
+                render={(item, i) => <CardTopAnime key={i} anime={item} />}
               />
             </div>
 

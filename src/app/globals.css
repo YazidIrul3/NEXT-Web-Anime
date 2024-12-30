@@ -2,3 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@media(max-width: 510px) {
+    #card-img-anime {
+        height: 150px;
+    }
+}
